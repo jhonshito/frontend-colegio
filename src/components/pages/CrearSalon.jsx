@@ -8,6 +8,7 @@ import Loading from '../Loading';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Salones from './Salones';
 
 const CrearSalon = () => {
 
@@ -55,13 +56,10 @@ const CrearSalon = () => {
         position: toast.POSITION.TOP_RIGHT
       })
       openSalon.current.classList.remove('salon_ventana');
-      console.log(respuesta.data)
     } catch (error) {
       console.log(error)
     }
 
-    // console.log(datos)
-    // console.log(selectedOption.value);
   }
 
 
@@ -72,8 +70,6 @@ const CrearSalon = () => {
   if(isError){
     error.mensaje
   }
-
-  console.log(data)
 
   return (
     <section className='conten_crear_salon'>
@@ -107,6 +103,7 @@ const CrearSalon = () => {
           </form>
         </div>
       </section>
+      <Salones />
       <ToastContainer />
     </section>
   )

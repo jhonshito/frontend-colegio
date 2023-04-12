@@ -1,0 +1,68 @@
+
+.conten_salones{
+    padding-left: 30px;
+    margin-top: 50px;
+}
+
+.salones{
+    display: flex;
+    gap: 10px;
+}
+
+.item_salones{
+    width: 40%;
+    height: 250px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0, 0, 0, 0.19);
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    gap: 20px;
+}
+
+.salon_imagen{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.salon_imagen img{
+    width: 100px;
+    border: 5px solid #E6E7E8;
+}
+
+.salones_data{
+    margin-right: 20px;
+}
+
+.salones_data h2{
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.salones_data p{
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.salones_data h3{
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.funciones_salones{
+    margin-top: 10px;
+}
+
+.funciones_salones button{
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #28a745;
+    background: #28a745;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

@@ -37,6 +37,12 @@ export const apiSlice = createApi({
             providesTags: ["Usuarios"]
         }),
 
+        // traer todos los salones
+        getSalones: buider.query({
+            query: () => 'salones',
+            providesTags: ['Salones']
+        }),
+
         // matricular estudiantes ⬇⬇
         putMatricular: buider.mutation({
             query: ({ id, texto }) => ({
@@ -63,10 +69,20 @@ export const apiSlice = createApi({
                 url: 'crearSalon',
                 method: 'POST',
                 body: { nombre, descripcion, id }
-            })
+            }),
+            invalidatesTags: ['Salones']
         })
 
     })
 });
 
-export const { useGetUserQuery, useGetEstudiantesQuery, useGetEstudiantesDeLosUltimosSieteDiasQuery, usePutMatricularMutation, useDeleteMatriculaMutation, useGetDocentesQuery, useCreateSalonMutation } = apiSlice
+export const { 
+    useGetUserQuery, 
+    useGetEstudiantesQuery, 
+    useGetEstudiantesDeLosUltimosSieteDiasQuery, 
+    usePutMatricularMutation, 
+    useDeleteMatriculaMutation, 
+    useGetDocentesQuery, 
+    useCreateSalonMutation,
+    useGetSalonesQuery
+} = apiSlice
