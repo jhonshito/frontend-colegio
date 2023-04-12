@@ -1,0 +1,14 @@
+
+.home{
+    position: relative;
+    left: 250px;
+    height: 100%;
+    width: calc(100% - 250px);
+    background: red;
+    transition: all 0.2s ease;
+}
+
+.body ~ .home{
+    left: 88px;
+    width: calc(100% -88px);
+}

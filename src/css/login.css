@@ -1,0 +1,272 @@
+
+.contenSeccion{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
+    background: #000428;
+    background: -webkit-linear-gradient(to right, #004e92, #000428);
+    background: linear-gradient(to right, #004e92, #000428);
+}
+
+.contenLogin{
+    width: 65%;
+    height: 96vh;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow:
+  0 2.8px 2.2px rgba(f, f, f, f.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+.bgLogin{
+    width: 47%;
+    height: 95%;
+    background: #F3F5F9;
+    margin-left: 15px;
+    border-radius: 10px;
+}
+
+.contenFormLogin{
+    width: 47%;
+    height: 95%;
+    /* background: red; */
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+.blur{
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 25px;
+    height: 25px;
+    background: blue;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.punto{
+    width: 7px;
+    height: 7px;
+    background: white;
+    border-radius: 100%;
+}
+
+.title{
+    margin-top: 30px;
+    /* font-weight: 400; */
+    font-size: 30px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    text-transform: uppercase;
+}
+
+.parrafo{
+    margin-left: 30px;
+    margin-right: 20px;
+    color: #899097;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.consejo{
+    width: 80%;
+    height: 160px;
+    background: #2D3345;
+    margin-left: 30px;
+    border-radius: 10px;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 25px;
+    font-weight: 300;
+}
+
+.tituloLogin{
+    font-size: 25px;
+    text-transform: uppercase;
+    margin-top: 6px;
+    font-weight: 400;
+    margin-left: 20px;
+}
+
+.parrafoLogin{
+    font-weight: 300;
+    font-size: 17px;
+    margin-left: 20px;
+}
+
+.formLogin{
+    margin-top: 20px;
+}
+
+.contentLabelLogin{
+    width: 80%;
+    /* background: red; */
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.obligatorioLogin{
+    display: flex;
+    justify-content: space-between;
+}
+
+.contentLabelLogin input, select{
+    padding: 6px 0;
+    width: 100%;
+    text-indent: 10px;
+    outline: none;
+    border: 2px solid #899097;
+    background: white;
+    color: #323232;
+    border-radius: 6px;
+    font-weight: 200;
+    font-size: 18px;
+}
+
+.contentLabelLogin label{
+    font-weight: 200;
+}
+
+.obligatorioLogin span{
+    color: red;
+}
+
+.contenten{
+    width: 80%;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.contenten label{
+    font-weight: 200;
+}
+
+.contenten input, select{
+    padding: 6px 0;
+    width: 100%;
+    text-indent: 10px;
+    outline: none;
+    border: 2px solid #899097;
+    background: white;
+    color: #323232;
+    border-radius: 6px;
+    font-weight: 200;
+    font-size: 18px;
+}
+
+.contenten input:focus{
+    border: 2px solid blue;
+}
+
+.contenten input[type="password"]{
+    padding-right: 30px;
+}
+
+.contenten i{
+    position: absolute;
+    right: 10px;
+    top: 38%;
+    cursor: pointer;
+}
+
+.contentLabelLogin select:focus{
+    border: 2px solid blue;
+}
+
+.contentLabelLogin input:focus{
+    border: 2px solid blue;
+}
+
+.botonLogin{
+    width: 80%;
+    margin-left: 20px;
+    padding: 10px 0;
+    cursor: pointer;
+    color: white;
+    background: blue;
+    border: 1px solid blue;
+    border-radius: 6px;
+}
+
+.botonLogin:hover{
+    background: #3C37FF;
+}
+
+.sinCuenta{
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.contentArrowLogin{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.contentArrowLogin i{
+    font-size: 30px;
+    color: #2D3345;
+}
+
+.contraseñaOlvidada{
+    text-decoration: none;
+    font-weight: 400;
+    color: #000428;
+}
+
+.contraseñaOlvidada:hover{
+    color: #004e92;
+}
+
+
+/* responsive login */
+
+@media (min-width: 300px) and (max-width: 900px) {
+    .contenLogin{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 70%;
+    }
+
+    .bgLogin{
+        display: none;
+    }
+
+    .contenFormLogin{
+        width: 100%;
+        margin-top: 0;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .formLogin{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tituloLogin{
+        text-align: center;
+    }
+
+    .parrafoLogin{
+        text-align: center;
+        margin-left: 0;
+    }
+}

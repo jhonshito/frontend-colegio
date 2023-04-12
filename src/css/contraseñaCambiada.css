@@ -1,0 +1,78 @@
+
+.contenPass{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
+    background: #0f0c29;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+}
+
+.formPss{
+    width: 40%;
+    height: 50vh;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow:
+  0 2.8px 2.2px rgba(f, f, f, f.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+.tituloPass{
+    text-align: center;
+    font-size: 27px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.parrafoPass{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contenPass .formPss .contentLabelLogin{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.contenPass .formPss .obligatorioLogin{
+    margin-bottom: 10px;
+}
+
+.contenPass .formPss .botonLogin{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contenPass .formPss i{
+    position: absolute;
+    right: 10px;
+    top: 55%;
+    cursor: pointer;
+}
+
+@media (min-width: 300px) and (max-width: 600px) {
+    .formPss{
+        width: 90%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 800px) {
+    .formPss{
+        width: 70%;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 900px) {
+    .formPss{
+        width: 60%;
+    }
+}

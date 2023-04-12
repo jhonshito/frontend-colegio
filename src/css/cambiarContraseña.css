@@ -1,0 +1,69 @@
+
+.contenPassword{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
+    background: #000428;
+    background: -webkit-linear-gradient(to right, #004e92, #000428);
+    background: linear-gradient(to right, #004e92, #000428);
+}
+
+.formPassword{
+    width: 40%;
+    height: 60vh;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow:
+  0 2.8px 2.2px rgba(f, f, f, f.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+.titlePassword{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 15px;
+    margin-bottom: 16px;
+}
+
+.formPassword .contentLabelLogin{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formPassword .contentLabelLogin .obligatorioLogin{
+    margin-bottom: 10px;
+}
+
+.formPassword .botonLogin{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formPassword .contentArrowPassword{
+    margin-top: 13px;
+    font-size: 36px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #000428;
+}
+
+@media (min-width: 300px) and (max-width: 600px) {
+    .formPassword{
+        width: 90%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 800px) {
+    .formPassword{
+        width: 70%;
+    }
+}
