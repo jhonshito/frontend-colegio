@@ -31,7 +31,7 @@ export const apiSlice = createApi({
             query: () => 'docentes'
         }),
 
-        // traore estudiantes que se postularon a matricula los ultimos 7 dias ⬇⬇
+        // traer estudiantes que se postularon a matricula los ultimos 7 dias ⬇⬇
         getEstudiantesDeLosUltimosSieteDias: buider.query({
             query: () => 'fechaRegistro',
             providesTags: ["Usuarios"]
@@ -42,6 +42,20 @@ export const apiSlice = createApi({
             query: () => 'salones',
             providesTags: ['Salones']
         }),
+
+        // traer a todos los periodos
+        getPeriodos: buider.query({
+            query: () => 'periodos',
+            providesTags: ['Periodos']
+        }),
+
+        // traer todas las clases del periodo seleccionado
+        getClase: buider.query({
+            query: ({ id }) => ({
+              url: `clases/${id}`,
+              method: 'GET',
+            }),
+          }),
 
         // matricular estudiantes ⬇⬇
         putMatricular: buider.mutation({
@@ -71,6 +85,15 @@ export const apiSlice = createApi({
                 body: { nombre, descripcion, id }
             }),
             invalidatesTags: ['Salones']
+        }),
+
+        createPeriodo: buider.mutation({
+            query: ({ nombre, inicio, fin }) => ({
+                url: 'agregarPeriodo',
+                method: 'POST',
+                body: { nombre, inicio, fin }
+            }),
+            invalidatesTags: ['Periodos']
         })
 
     })
@@ -84,5 +107,8 @@ export const {
     useDeleteMatriculaMutation, 
     useGetDocentesQuery, 
     useCreateSalonMutation,
-    useGetSalonesQuery
+    useGetSalonesQuery,
+    useGetPeriodosQuery,
+    useCreatePeriodoMutation,
+    useGetClaseQuery,
 } = apiSlice

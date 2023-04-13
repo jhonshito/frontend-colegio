@@ -8,7 +8,8 @@ const Inicio = () => {
 
     const [referencia, setReferencia] = useState({
         pefil: useRef(),
-        Inicio: useRef()
+        Inicio: useRef(),
+        periodo: useRef()
     })
 
     const bodyRef = useRef();
@@ -63,6 +64,12 @@ const Inicio = () => {
         }else {
             referencia.Inicio.current.classList.remove('bg')
         }
+
+        if(location.pathname == '/inicio/pages/periodos'){
+            referencia.periodo.current.classList.add('bg')
+        }else {
+            referencia.periodo.current.classList.remove('bg')
+        }
         
     }, [bodyRef, modeTextRef, location.pathname, referencia.pefil]);
 
@@ -110,10 +117,10 @@ const Inicio = () => {
                             </a>
                         </li>
                         <li className="nav-link">
-                            <a href="#">
-                                <i className='bx bx-pie-chart-alt icon' ></i>
-                                <span className="text nav-text">Analytics</span>
-                            </a>
+                            <Link ref={referencia.periodo} to={'/inicio/pages/periodos'}>
+                                <i className='bx bx-book-bookmark icon'></i>
+                                <span className="text nav-text">Periodos</span>
+                            </Link>
                         </li>
                         <li className="nav-link">
                             <a href="#">

@@ -1,0 +1,59 @@
+
+
+.conten_clases{
+    padding: 20px 0px 0px 30px;
+}
+
+
+.item_clases{
+    width: 35%;
+    height: 450px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.image_clases {
+    width: 80%;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image_clases img{
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+}
+
+.item_clases h3{
+    margin-top: 25px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.item_clases p{
+    margin: 0px 0px 0px 40px;
+    /* text-align: center; */
+    font-weight: 300;
+}
+
+.clases_profesor{
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.clases_profesor img{
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    border: 5px solid #E6E7E8;
+}
+
+.clases_profesor h4{
+    text-transform: uppercase;
+    font-weight: 300;
+}

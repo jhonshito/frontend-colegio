@@ -15,6 +15,9 @@ import { ApiProvider } from "@reduxjs/toolkit/query/react";
 import { apiSlice } from "./api/apiSlice";
 import ListEstudiantes from './components/pages/ListEstudiantes'
 import CrearSalon from './components/pages/CrearSalon'
+import Periodos from './components/pages/Periodos'
+import Clases from './components/pages/Clases'
+import Docente from './components/pages/Docente'
 
 function App() {
 
@@ -32,8 +35,11 @@ function App() {
               <Route path='/inicio/pages' element={<PagesHome/>}>
                 <Route path='/inicio/pages/perfil' element={<Perfi />} />
                 <Route path='/inicio/pages/pagesInicio' element={<AnotherInicio />} />
+                <Route path='/inicio/pages/periodos' element={<Periodos />} />
                 <Route path='/inicio/pages/listEstudiantes' element={<ListEstudiantes />} />
                 <Route path='/inicio/pages/crearSalon' element={<CrearSalon />} />
+                <Route path='/inicio/pages/clases/:id' element={<Clases />} />
+                <Route path='/inicio/pages/docentes' element={<Docente />} />
               </Route>
             </Route>
           </Routes>

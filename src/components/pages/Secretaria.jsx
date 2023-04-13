@@ -146,10 +146,10 @@ const Secretaria = ({user}) => {
                 <h4>estudiantes</h4>
             </Link>
 
-            <div className='funcionesSecretaria'>
+            <Link to={'/inicio/pages/docentes'} className='funcionesSecretaria'>
                 <i className='bx bxs-book-bookmark'></i>
                 <h4>docentes</h4>
-            </div>
+            </Link>
 
             <Link to={'/inicio/pages/crearSalon'} className='funcionesSecretaria'>
                 <SiGoogleclassroom className='i' />

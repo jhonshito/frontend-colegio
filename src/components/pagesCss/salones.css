@@ -7,17 +7,24 @@
 .salones{
     display: flex;
     gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .item_salones{
     width: 40%;
-    height: 250px;
     background: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0, 0, 0, 0.19);
     display: flex;
     justify-content: space-between;
     cursor: pointer;
     gap: 20px;
+    max-height: 100%;
+    border-radius: 5px;
+}
+
+body.dark .item_salones{
+    background: #242526;
 }
 
 .salon_imagen{
@@ -52,10 +59,11 @@
 
 .funciones_salones{
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .funciones_salones button{
-    padding: 10px 20px;
+    padding: 7px 20px;
     cursor: pointer;
     border: 1px solid #28a745;
     background: #28a745;
@@ -65,4 +73,8 @@
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.funciones_salones button i{
+    font-size: 17px;
 }
