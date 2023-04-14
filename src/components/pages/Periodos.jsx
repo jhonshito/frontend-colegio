@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
-import { useGetPeriodosQuery, useCreatePeriodoMutation } from "../../api/apiSlice";
+import { useGetPeriodosQuery, useCreatePeriodoMutation, useGetLetivoQuery } from "../../api/apiSlice";
 import { Link } from "react-router-dom";
 import Loading from "../Loading"
 import "../pagesCss/periodos.css"
 import calendario from "../pagesImg/calendario.avif";
+import Select from "react-select";
+import letivo_año from "../pagesImg/letivo_año.png"
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,7 +13,10 @@ import 'react-toastify/dist/ReactToastify.css';
 const Periodos = () => {
 
   const { data, isLoading, isError, error } = useGetPeriodosQuery();
+  const { data: letivoData, isLoading: letivoLoading, isError: letivoError, error: letivoErrorMsg } = useGetLetivoQuery();
   const [ createPeriodo ] = useCreatePeriodoMutation();
+  const [options, setOptions] = useState([]);
+  const [selectedOption, setSelectedOption] = useState(null);
   const conenedor = useRef(null);
   const [formValues, setFormValues] = useState({
     nombre: "",
@@ -32,26 +37,54 @@ const Periodos = () => {
     event.preventDefault();
     console.log(formValues);
     try {
-      const res = await createPeriodo({ nombre: formValues.nombre, inicio: formValues.inicio, fin: formValues.fin });
-      // console.log(res)
-      toast.success(res.data.mensaje, {
-        position: toast.POSITION.TOP_RIGHT
-      })
-      setTimeout(() => {
-        conenedor.current.style.display = 'none';
-      }, 1000)
+      const res = await createPeriodo({ nombre: formValues.nombre, inicio: formValues.inicio, fin: formValues.fin, idLetivo: selectedOption.value });
+      console.log(res)
+      if(res.error){
+        toast.error(res.error.data.mensaje, {
+          position: toast.POSITION.TOP_RIGHT
+        })
+      }else{
+        toast.success(res.data.mensaje, {
+          position: toast.POSITION.TOP_RIGHT
+        })
+        setTimeout(() => {
+          conenedor.current.style.display = 'none';
+        }, 1000)
+      }
     } catch (error) {
       console.log(error)
     }
   };
 
-  if(isLoading){
+  useEffect(() => {
+    if (letivoData && letivoData.años_letivos) {
+      const newOptions = letivoData.años_letivos.map((dato) => ({
+        value: dato._id,
+        label: dato.nombre,
+        otroLabel: dato.jornada,
+        image: letivo_año
+      }));
+      setOptions(newOptions);
+    }
+  }, [letivoData])
+
+  if(isLoading || letivoLoading){
     return <Loading />
   }
 
   if(isError){
-    console.log(error.message)
+    <div>{error.message}</div>
   }
+
+  if(letivoError){
+    <div>{letivoErrorMsg.message}</div>
+  }
+
+  // if (letivoData) {
+  //   console.log(letivoData);
+  // } else {
+  //   console.log("No hay datos disponibles.");
+  // }
 
   return (
     <section className='conten_periodo'>
@@ -68,6 +101,22 @@ const Periodos = () => {
           <div className='conten_labol'>
             <label htmlFor="">Nombre</label>
             <input name='nombre' onChange={handleInputChange} type="text" placeholder='Ingresa nombre del periodo' />
+          </div>
+          <div className='conten_labol'>
+            <label htmlFor="">Año letivo al que va a pertenecer el periodo</label>
+            <Select
+              options={options}
+              placeholder="Seleccione el año letivo que pertenecera este periodo"
+              value={selectedOption}
+              onChange={setSelectedOption}
+              formatOptionLabel={({ label, image, otroLabel }) => (
+                <div className="option_container">
+                  <img src={image} alt={label} className="option-image" />
+                  <span className="option-label">{label}</span>
+                  <span className="option-label">{otroLabel}</span>
+                </div>
+              )}
+            />
           </div>
           <div className='conten_labol'>
             <label htmlFor="">Inicio del periodo</label>

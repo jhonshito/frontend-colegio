@@ -9,7 +9,8 @@ const Inicio = () => {
     const [referencia, setReferencia] = useState({
         pefil: useRef(),
         Inicio: useRef(),
-        periodo: useRef()
+        periodo: useRef(),
+        letivo: useRef()
     })
 
     const bodyRef = useRef();
@@ -70,6 +71,12 @@ const Inicio = () => {
         }else {
             referencia.periodo.current.classList.remove('bg')
         }
+
+        if(location.pathname == '/inicio/pages/letivo'){
+            referencia.letivo.current.classList.add('bg')
+        }else {
+            referencia.letivo.current.classList.remove('bg')
+        }
         
     }, [bodyRef, modeTextRef, location.pathname, referencia.pefil]);
 
@@ -123,10 +130,10 @@ const Inicio = () => {
                             </Link>
                         </li>
                         <li className="nav-link">
-                            <a href="#">
-                                <i className='bx bx-heart icon' ></i>
-                                <span className="text nav-text">Likes</span>
-                            </a>
+                            <Link ref={referencia.letivo} to={'/inicio/pages/letivo'}>
+                                <i className="bi bi-hourglass-split icon"></i>
+                                <span className="text nav-text">Años letivos</span>
+                            </Link>
                         </li>
                         <li className="nav-link">
                             <a href="#">

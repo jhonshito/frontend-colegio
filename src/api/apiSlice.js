@@ -57,6 +57,21 @@ export const apiSlice = createApi({
             }),
           }),
 
+        // traer todos los años letivos
+        getLetivo: buider.query({
+            query: () => 'letivosGet',
+            providesTags: ['Letivos']
+        }),
+
+        crearLetivo: buider.mutation({
+            query: ({ nombre, inicio, fin, jornada }) => ({
+                url: 'letivo',
+                method: 'POST',
+                body: { nombre, inicio, fin, jornada }
+            }),
+            invalidatesTags: ['Letivos']
+        }),
+
         // matricular estudiantes ⬇⬇
         putMatricular: buider.mutation({
             query: ({ id, texto }) => ({
@@ -88,27 +103,29 @@ export const apiSlice = createApi({
         }),
 
         createPeriodo: buider.mutation({
-            query: ({ nombre, inicio, fin }) => ({
+            query: ({ nombre, inicio, fin, idLetivo }) => ({
                 url: 'agregarPeriodo',
                 method: 'POST',
-                body: { nombre, inicio, fin }
+                body: { nombre, inicio, fin, idLetivo }
             }),
-            invalidatesTags: ['Periodos']
+            invalidatesTags: ['Periodos', 'Letivos']
         })
 
     })
 });
 
 export const { 
-    useGetUserQuery, 
-    useGetEstudiantesQuery, 
-    useGetEstudiantesDeLosUltimosSieteDiasQuery, 
-    usePutMatricularMutation, 
-    useDeleteMatriculaMutation, 
-    useGetDocentesQuery, 
+    useGetUserQuery,
+    useGetEstudiantesQuery,
+    useGetEstudiantesDeLosUltimosSieteDiasQuery,
+    usePutMatricularMutation,
+    useDeleteMatriculaMutation,
+    useGetDocentesQuery,
     useCreateSalonMutation,
     useGetSalonesQuery,
     useGetPeriodosQuery,
     useCreatePeriodoMutation,
     useGetClaseQuery,
+    useGetLetivoQuery,
+    useCrearLetivoMutation
 } = apiSlice

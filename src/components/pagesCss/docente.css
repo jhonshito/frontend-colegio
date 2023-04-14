@@ -1,0 +1,67 @@
+
+.conten_docente{
+    padding: 30px 10px 30px 30px;
+}
+
+.card_conten_docente{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.item_docente{
+    width: 290px;
+    height: 300px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0, 0, 0, 0.19);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+body.dark .item_docente{
+    background: #242526;
+}
+
+.image_docente{
+    width: 30%;
+    margin: 10px auto 0px auto;
+}
+
+.image_docente img{
+    width: 100%;
+    border: 5px solid #E6E7E8;
+    margin-top: 10px;
+}
+
+.item_docente span{
+    margin: 0px 0px 0px 20px;
+    text-transform: uppercase;
+}
+
+.item_docente h3{
+    margin: 0px 0px 0px 20px;
+    text-transform: uppercase;
+}
+
+.conctato_docen{
+    margin-top: 10px;
+}
+
+.conctato_docen h4{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.conctato_docen h5{
+    margin: 0px 10px 0px 20px;
+    
+}
+
+.item_docente hr{
+    width: 50%;
+    margin: 10px auto 0px auto;
+    height: 0.5px;
+    border: none;
+    border-top: 1px solid #999;
+    background-color: #fff;
+}
