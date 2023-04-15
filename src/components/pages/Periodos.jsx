@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Periodos = () => {
 
-  const { data, isLoading, isError, error } = useGetPeriodosQuery();
+  const { data, isLoading, isError, error, isSuccess } = useGetPeriodosQuery();
   const { data: letivoData, isLoading: letivoLoading, isError: letivoError, error: letivoErrorMsg } = useGetLetivoQuery();
   const [ createPeriodo ] = useCreatePeriodoMutation();
   const [options, setOptions] = useState([]);
@@ -80,11 +80,6 @@ const Periodos = () => {
     <div>{letivoErrorMsg.message}</div>
   }
 
-  // if (letivoData) {
-  //   console.log(letivoData);
-  // } else {
-  //   console.log("No hay datos disponibles.");
-  // }
 
   return (
     <section className='conten_periodo'>
@@ -135,7 +130,7 @@ const Periodos = () => {
       <div className="allperiodos">
 
         {
-          data.periodos.map((item) => (
+          data.periodos?.map((item) => (
             <Link to={`/inicio/pages/clases/${item._id}`} key={item._id} className="item_periodos">
               <div className="image_periodo">
                 <img src={calendario} alt="" />

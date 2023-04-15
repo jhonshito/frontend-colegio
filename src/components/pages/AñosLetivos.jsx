@@ -5,6 +5,7 @@ import { useGetLetivoQuery, useCrearLetivoMutation } from "../../api/apiSlice";
 import Loading from "../Loading"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from "react-router-dom";
 
 const AñosLetivos = () => {
 
@@ -98,7 +99,7 @@ const AñosLetivos = () => {
         <div className="content_card_letivo">
             {
                 data.años_letivos.map((items) => (
-                    <div key={items._id} className="item_letivo">
+                    <Link to={`/inicio/pages/periodosLetivos/${items._id}`} key={items._id} className="item_letivo">
                         <div className="image_letivo">
                             <img src={letivo_año} alt="" />
                         </div>
@@ -107,8 +108,10 @@ const AñosLetivos = () => {
                             <h3>jornada {items.jornada}</h3>
                             <h3>Fecha de inicio: <span>{new Date(items.inicio).toDateString()}</span></h3>
                             <h3>Fecha de fin: <span>{new Date(items.fin).toDateString()}</span></h3>
+                            <hr />
+                            <h3>Periodos: <span>{items.periodos.length}</span></h3>
                         </div>
-                    </div>
+                    </Link>
                 ))
             }
         </div>

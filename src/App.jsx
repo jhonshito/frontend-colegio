@@ -19,6 +19,7 @@ import Periodos from './components/pages/Periodos'
 import Clases from './components/pages/Clases'
 import Docente from './components/pages/Docente'
 import AñosLetivos from './components/pages/AñosLetivos'
+import PeriodosDelAñoLetivo from './components/pages/PeriodosDelAñoLetivo'
 
 function App() {
 
@@ -41,7 +42,8 @@ function App() {
                 <Route path='/inicio/pages/crearSalon' element={<CrearSalon />} />
                 <Route path='/inicio/pages/clases/:id' element={<Clases />} />
                 <Route path='/inicio/pages/docentes' element={<Docente />} />
-                <Route path='/inicio/pages/letivo' element={<AñosLetivos />} /> 
+                <Route path='/inicio/pages/letivo' element={<AñosLetivos />} />
+                <Route path='/inicio/pages/periodosLetivos/:id' element={<PeriodosDelAñoLetivo />} />
               </Route>
             </Route>
           </Routes>

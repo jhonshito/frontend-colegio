@@ -63,6 +63,11 @@ export const apiSlice = createApi({
             providesTags: ['Letivos']
         }),
 
+        // traer a los periodos del año letivo seleccionado
+        getPeriodosLetivos: buider.query({
+            query: ({ idLetivo }) => `periodosForLetivos/${idLetivo}`
+        }),
+
         crearLetivo: buider.mutation({
             query: ({ nombre, inicio, fin, jornada }) => ({
                 url: 'letivo',
@@ -127,5 +132,6 @@ export const {
     useCreatePeriodoMutation,
     useGetClaseQuery,
     useGetLetivoQuery,
-    useCrearLetivoMutation
+    useCrearLetivoMutation,
+    useGetPeriodosLetivosQuery
 } = apiSlice
