@@ -110,6 +110,7 @@ const AñosLetivos = () => {
                             <h3>Fecha de fin: <span>{new Date(items.fin).toDateString()}</span></h3>
                             <hr />
                             <h3>Periodos: <span>{items.periodos.length}</span></h3>
+                            <h3>Estudiantes: <span>{items.estudiantes.length}</span></h3>
                         </div>
                     </Link>
                 ))

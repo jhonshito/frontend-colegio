@@ -80,7 +80,8 @@ const Periodos = () => {
     <div>{letivoErrorMsg.message}</div>
   }
 
-
+  const nuevaFecha = new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric' })
+  console.log(nuevaFecha)
   return (
     <section className='conten_periodo'>
 
@@ -131,7 +132,7 @@ const Periodos = () => {
 
         {
           data.periodos?.map((item) => (
-            <Link to={`/inicio/pages/clases/${item._id}`} key={item._id} className="item_periodos">
+            <Link to={`/inicio/pages/clases/${item._id}`} key={item._id} className='item_periodos'>
               <div className="image_periodo">
                 <img src={calendario} alt="" />
               </div>

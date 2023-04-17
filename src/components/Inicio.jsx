@@ -10,7 +10,8 @@ const Inicio = () => {
         pefil: useRef(),
         Inicio: useRef(),
         periodo: useRef(),
-        letivo: useRef()
+        letivo: useRef(),
+        materias: useRef()
     })
 
     const bodyRef = useRef();
@@ -77,6 +78,12 @@ const Inicio = () => {
         }else {
             referencia.letivo.current.classList.remove('bg')
         }
+
+        if(location.pathname == '/inicio/pages/materias'){
+            referencia.materias.current.classList.add('bg')
+        }else {
+            referencia.materias.current.classList.remove('bg')
+        }
         
     }, [bodyRef, modeTextRef, location.pathname, referencia.pefil]);
 
@@ -136,10 +143,10 @@ const Inicio = () => {
                             </Link>
                         </li>
                         <li className="nav-link">
-                            <a href="#">
+                            <Link ref={referencia.materias} to={'/inicio/pages/materias'}>
                                 <i className='bx bx-wallet icon' ></i>
-                                <span className="text nav-text">Wallets</span>
-                            </a>
+                                <span className="text nav-text">Materias</span>
+                            </Link>
                         </li>
                     </ul>
                 </div>
