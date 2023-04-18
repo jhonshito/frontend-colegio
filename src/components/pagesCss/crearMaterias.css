@@ -15,6 +15,10 @@
     justify-content: center;
 }
 
+body.dark .ventana_materias{
+    background: #CCCCCC80;
+}
+
 .cabezera_materias{
     padding: 30px 0px 0px 30px;
 }
@@ -35,19 +39,28 @@
 
 .form_materias{
     width: 45%;
-    height: 70vh;
+    height: 80vh;
     background: white;
-    /* display: none; */
+    display: none;
     margin-top: 20px;
     position: fixed;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0, 0, 0, 0.19);
     border-radius: 5px;
 }
 
+body.dark .form_materias{
+    background: #242526;
+}
+
+.ventana_materias .form_materias{
+    display: block;
+}
+
 .form_materias i{
     float: right;
     font-size: 30px;
     cursor: pointer;
+    margin-right: 20px;
 }
 
 .form_materias form {
@@ -98,4 +111,39 @@
 .conten_materias_options{
     display: flex;
     gap: 10px;
+    align-items: center;
+}
+
+.conten_materias_options img{
+    width: 30px;
+    height: 30px;
+    border: 0px solid white;
+    border-radius: 100%;
+}
+
+.card_conten_materias{
+    margin: 30px 0px 0px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.item_card_materis{
+    background: white;
+    min-width: 30%;
+    max-width: 30%;
+    height: 90px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0, 0, 0, 0.19);
+}
+
+body.dark .item_card_materis{
+    background: #242526;
+}
+
+.item_card_materis h3{
+    text-align: center;
+}
+
+.item_card_materis p{
+    text-align: center;
 }

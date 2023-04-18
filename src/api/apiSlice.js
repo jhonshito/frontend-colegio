@@ -114,6 +114,38 @@ export const apiSlice = createApi({
                 body: { nombre, inicio, fin, idLetivo }
             }),
             invalidatesTags: ['Periodos', 'Letivos']
+        }),
+
+        // crear materia
+        createMateria: buider.mutation({
+            query: ({ nombre, idLetivo, descripcion, tipo }) => ({
+                url: 'crearMaterias',
+                method: 'POST',
+                body: { nombre, idLetivo, descripcion, tipo }
+            }),
+            invalidatesTags:['materias']
+        }),
+
+        // materias creadas
+        getMaterias: buider.query({
+            query: () => 'materiasCreadas',
+            providesTags:['materias']
+        }),
+
+        // crear asignatura
+        createAsignatura: buider.mutation({
+            query: ({ nombre, idLetivo, descripcion, tipo, materias }) => ({
+                url: 'crearAsignaturas',
+                method: 'POST',
+                body: { nombre, idLetivo, descripcion, tipo, materias }
+            }),
+            invalidatesTags: ['asignaturas']
+        }),
+
+        // traer todas las asignatura creadas
+        getAsignaturas: buider.query({
+            query: () => 'asignaturasCreadas',
+            providesTags: ['asignaturas']
         })
 
     })
@@ -133,5 +165,9 @@ export const {
     useGetClaseQuery,
     useGetLetivoQuery,
     useCrearLetivoMutation,
-    useGetPeriodosLetivosQuery
+    useGetPeriodosLetivosQuery,
+    useCreateMateriaMutation,
+    useGetMateriasQuery,
+    useCreateAsignaturaMutation,
+    useGetAsignaturasQuery
 } = apiSlice
