@@ -118,10 +118,10 @@ export const apiSlice = createApi({
 
         // crear materia
         createMateria: buider.mutation({
-            query: ({ nombre, idLetivo, descripcion, tipo }) => ({
+            query: ({ nombre, idLetivo, tipo }) => ({
                 url: 'crearMaterias',
                 method: 'POST',
-                body: { nombre, idLetivo, descripcion, tipo }
+                body: { nombre, idLetivo, tipo }
             }),
             invalidatesTags:['materias']
         }),
@@ -134,10 +134,10 @@ export const apiSlice = createApi({
 
         // crear asignatura
         createAsignatura: buider.mutation({
-            query: ({ nombre, idLetivo, descripcion, tipo, materias }) => ({
+            query: ({ nombre, idLetivo, tipo, materias }) => ({
                 url: 'crearAsignaturas',
                 method: 'POST',
-                body: { nombre, idLetivo, descripcion, tipo, materias }
+                body: { nombre, idLetivo, tipo, materias }
             }),
             invalidatesTags: ['asignaturas']
         }),

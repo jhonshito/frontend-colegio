@@ -39,7 +39,7 @@ body.dark .ventana_materias{
 
 .form_materias{
     width: 45%;
-    height: 80vh;
+    height: 50vh;
     background: white;
     display: none;
     margin-top: 20px;
@@ -130,20 +130,58 @@ body.dark .form_materias{
 
 .item_card_materis{
     background: white;
-    min-width: 30%;
+    min-width: 35%;
     max-width: 30%;
-    height: 90px;
+    min-height: 190px;
+    max-height: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0, 0, 0, 0.19);
+    border-radius: 5px;
 }
 
 body.dark .item_card_materis{
     background: #242526;
 }
 
-.item_card_materis h3{
+.item_card_materis h2{
     text-align: center;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.item_card_materis h3{
+    margin: 10px 10px 0px 20px;
+    text-transform: uppercase;
+    font-weight: 300;
 }
 
 .item_card_materis p{
-    text-align: center;
+    margin: 0px 10px 0px 20px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.item_butones{
+    display: flex;
+    gap: 10px;
+    margin: 10px 10px 10px 20px;
+    flex-wrap: wrap;
+}
+
+.item_butones .eliminar{
+    background: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.item_butones .editar{
+    background:#ffc107;
+    border: 1px solid #ffc107;
+}
+
+.item_butones button{
+    margin-left: 0px;
+}
+
+.item_materias{
+    display: flex;
+    flex-wrap: wrap;
 }

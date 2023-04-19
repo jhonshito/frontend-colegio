@@ -24,7 +24,6 @@ const CrearMaterias = () => {
     const [asignatruaSelectedOption, setAsignaturaSelectedOption] = useState(null);
     const [tiposelectedOption, setTipoSelectedOption] = useState('');
     const [anotherSelectedOption, setAnotherSelectedOption] = useState(null);
-    const [formText, setFormText] = useState('');
     const conten = useRef(null);
 
     useEffect(() => {
@@ -77,7 +76,7 @@ const CrearMaterias = () => {
         if(tiposelectedOption.label == 'materia'){
 
             try {
-                const res = await createMateria({ nombre: selectedOption.label, idLetivo: anotherSelectedOption.value, descripcion: formText, tipo: tiposelectedOption.label });
+                const res = await createMateria({ nombre: selectedOption.label, idLetivo: anotherSelectedOption.value, tipo: tiposelectedOption.label });
                 if(res.data.status == 200){
                     toast.success(res.data.mensaje, {
                         position: toast.POSITION.TOP_RIGHT
@@ -100,7 +99,7 @@ const CrearMaterias = () => {
             }
         }else {
             try {
-                const res = await createAsignatura({ nombre: asignatruaSelectedOption.label, idLetivo: anotherSelectedOption.value, descripcion: formText, tipo: tiposelectedOption.label, materias: asignatruaSelectedOption.items });
+                const res = await createAsignatura({ nombre: asignatruaSelectedOption.label, idLetivo: anotherSelectedOption.value, tipo: tiposelectedOption.label, materias: asignatruaSelectedOption.items });
                 if(res.data.status == 200){
                     toast.success(res.data.mensaje, {
                         position: toast.POSITION.TOP_RIGHT
@@ -149,7 +148,7 @@ const CrearMaterias = () => {
         return <div>{asignaturaError.message}</div>
     }
 
-    console.log(dataAsignatura)
+    // console.log(dataMateria)
   return (
     <section className='conten_materias'>
         <div className="cabezera_materias">
@@ -211,7 +210,6 @@ const CrearMaterias = () => {
                             </div>
                         )}
                     />
-                    <textarea name="" id="" cols="30" rows="10" onChange={(e) => setFormText(e.target.value)} placeholder='Ingresa descripcion de la nueva materia'></textarea>
                     <button type='submit'>Crear materia</button>
                 </form>
             </div>
@@ -220,8 +218,37 @@ const CrearMaterias = () => {
             {
                 dataMateria.materias.map((item) => (
                     <div key={item._id} className="item_card_materis">
+                        <h2>{item.tipo}</h2>
                         <h3>{item.nombre}</h3>
-                        <p>{item.descripcion}</p>
+                        <div className="item_butones">
+                            <button>docente</button>
+                            <button className='eliminar'>eliminar materia</button>
+                            <button className='editar'>editar materia</button>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+        <div className="card_conten_materias">
+            {
+                dataAsignatura.asignaturas.map((item) => (
+                    <div key={item._id} className="item_card_materis">
+                        <h2>{item.tipo}</h2>
+                        <h3>{item.nombre}</h3>
+                        <div className='item_materias'>
+                            {
+                                item.materias.map((item, index) => (
+                                    <>
+                                        <p key={index}>{item}</p>
+                                    </>
+                                ))
+                            }
+                            <div className="item_butones">
+                                <button>docente</button>
+                                <button className='eliminar'>eliminar materia</button>
+                                <button className='editar'>editar materia</button>
+                            </div>
+                        </div>
                     </div>
                 ))
             }
