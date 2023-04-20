@@ -1,17 +1,21 @@
 
 .conten_docente{
-    padding: 30px 10px 30px 30px;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .card_conten_docente{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    padding: 20px 10px 20px 20px;
 }
 
 .item_docente{
     width: 290px;
-    height: 300px;
+    min-height: 340px;
+    max-height: 450px;
     background: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0, 0, 0, 0.19);
     border-radius: 5px;
@@ -64,4 +68,87 @@ body.dark .item_docente{
     border: none;
     border-top: 1px solid #999;
     background-color: #fff;
+}
+
+.item_docente button{
+    padding: 10px 0;
+    width: 200px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid #28a745;
+    background: #28a745;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.emergente_docentes{
+    width: 100%;
+    height: 100%;
+    background: #33333380;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+}
+
+body.dark .emergente_docentes{
+    background: #CCCCCC80;
+}
+
+.conten_form_docentes{
+    width: 45%;
+    height: 30vh;
+    background: white;
+    /* display: none; */
+    margin-top: 20px;
+    position: fixed;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0, 0, 0, 0.19);
+    border-radius: 5px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+body.dark .conten_form_docentes{
+    background: #242526;
+}
+
+.conten_form_docentes form {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 36px;
+}
+
+body.dark .conten_form_docentes form{
+    color: black;
+}
+
+.conten_form_docentes form button{
+    padding: 10px 0;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid #28a745;
+    background: #28a745;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+
+.conten_form_docentes i{
+    float: right;
+    margin-right: 30px;
+    font-size: 20px;
+    cursor: pointer;
 }

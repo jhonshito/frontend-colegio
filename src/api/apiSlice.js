@@ -146,6 +146,14 @@ export const apiSlice = createApi({
         getAsignaturas: buider.query({
             query: () => 'asignaturasCreadas',
             providesTags: ['asignaturas']
+        }),
+
+        putMateria: buider.mutation({
+            query: ({ docenteId, materiaId }) => ({
+                url: 'addMateria',
+                method: 'PUT',
+                body: { docenteId, materiaId }
+            })
         })
 
     })
@@ -169,5 +177,6 @@ export const {
     useCreateMateriaMutation,
     useGetMateriasQuery,
     useCreateAsignaturaMutation,
-    useGetAsignaturasQuery
+    useGetAsignaturasQuery,
+    usePutMateriaMutation
 } = apiSlice
