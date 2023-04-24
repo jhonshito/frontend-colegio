@@ -154,6 +154,12 @@ export const apiSlice = createApi({
                 method: 'PUT',
                 body: { docenteId, materiaId }
             })
+        }),
+
+        // traer a todos los grados
+        getGrados: buider.query({
+            query: () => 'allGrados',
+            providesTags: ['grados']
         })
 
     })
@@ -178,5 +184,6 @@ export const {
     useGetMateriasQuery,
     useCreateAsignaturaMutation,
     useGetAsignaturasQuery,
-    usePutMateriaMutation
+    usePutMateriaMutation,
+    useGetGradosQuery
 } = apiSlice

@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { useGetMateriasQuery, useGetAsignaturasQuery, usePutMateriaMutation } from "../../api/apiSlice";
 import { tiposOptiones } from "./selectOptions/Opcciones";
+import { Link } from "react-router-dom";
 
 const Docente = () => {
 
@@ -127,7 +128,7 @@ const Docente = () => {
     <div>{asignaturaError.message}</div>
   }
 
-  console.log(data)
+  // console.log(data)
   return (
     <section className='conten_docente'>
       <div className="card_conten_docente">

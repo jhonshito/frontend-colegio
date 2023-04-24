@@ -3,6 +3,7 @@ import "../pagesCss/listEstudiantes.css"
 import Loading from '../Loading';
 import inicio from "../pagesImg/inicio.webp"
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const ListEstudiantes = () => {
 
@@ -20,22 +21,23 @@ const ListEstudiantes = () => {
     }
 
     const handleUserOpen = (item) => {
-        console.log(item)
+        // console.log(item)
         setDatos(item)
         open.current.classList.add('ventana');
         // open.current.style.display = 'block'
-        console.log(datos)
+        // console.log(datos)
     }
 
     const handleUserClose = () => {
         open.current.classList.remove('ventana');
-        console.log(open.current)
+        // console.log(open.current)
         open.current.classList.add('ventanaClose');
     }
 
-    console.log(data)
+    // console.log(data)
 
   return (
+    <>
     <section className='setTabla'>
         {
             data.user == 0 ? <div className="sinMatricular">no hay estudiantes matriculados</div>:
@@ -112,6 +114,7 @@ const ListEstudiantes = () => {
             </div>
         </article>
     </section>
+    </>
   )
 }
 

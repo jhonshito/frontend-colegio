@@ -13,6 +13,11 @@
     --tran-05: all 0.2s ease;
 }
 
+.conte_back{
+    padding: 10px 0px 0px 50px;
+    /* background-color: red; */
+}
+
 .setTabla{
     display: flex;
     justify-content: center;

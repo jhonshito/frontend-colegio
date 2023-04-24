@@ -5,6 +5,14 @@
     height: 100%;
 }
 
+.conte_back_docente{
+    padding: 10px 0px 0px 20px;
+}
+
+/* .bi-arrow-left-circle-fill{
+    cursor: pointer;
+} */
+
 .card_conten_docente{
     display: flex;
     flex-wrap: wrap;

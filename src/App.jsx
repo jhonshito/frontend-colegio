@@ -21,6 +21,7 @@ import Docente from './components/pages/Docente'
 import AñosLetivos from './components/pages/AñosLetivos'
 import PeriodosDelAñoLetivo from './components/pages/PeriodosDelAñoLetivo'
 import CrearMaterias from './components/pages/CrearMaterias'
+import CrearGrados from './components/pages/CrearGrados'
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
                 <Route path='/inicio/pages/letivo' element={<AñosLetivos />} />
                 <Route path='/inicio/pages/periodosLetivos/:id' element={<PeriodosDelAñoLetivo />} />
                 <Route path='/inicio/pages/materias' element={<CrearMaterias />} />
+                <Route path='/inicio/pages/grados' element={<CrearGrados />} />
               </Route>
             </Route>
           </Routes>

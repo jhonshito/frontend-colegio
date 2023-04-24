@@ -1,0 +1,138 @@
+
+.conten_grados{
+    /* padding: 20px 0px 20px 30px; */
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.conte_button_grados{
+    padding: 20px 0px 10px 30px;
+}
+
+.conte_button_grados button{
+    margin-bottom: 10px;
+    display: flex;
+    padding: 0px 20px;
+    cursor: pointer;
+    border: 1px solid #28a745;
+    background: #28a745;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+}
+
+.conten_grados button i{
+    font-size: 25px;
+}
+
+.conten_card_grados{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0px 0px 20px 30px;
+}
+
+.item_grados{
+    width: 30%;
+    height: 430px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+body.dark .item_grados{
+    background: #242526;
+}
+
+.conte_img_grado{
+    width: 80%;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.conte_img_grado img{
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+}
+
+.conte_name_grado{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+}
+
+.conte_name_grado p{
+    font-size: 30px;
+}
+
+.conte_data_docente p{
+    text-transform: uppercase;
+}
+
+.conten_img_director_grado{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.conten_img_director_grado img{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 5px solid #E6E7E8;
+    margin-top: 5px;
+}
+
+.conte_estudiantes_data{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 7px;
+}
+
+.emergente_grado{
+    width: 100%;
+    height: 100%;
+    background: #33333380;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+}
+
+body.dark .emergente_grado{
+    background: #CCCCCC80;
+}
+
+.ventana_grado{
+    width: 45%;
+    height: 30vh;
+    background: white;
+    display: none;
+    margin-top: 20px;
+    position: fixed;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0, 0, 0, 0.19);
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.emergente_grado .ventana_grado{
+    display: block;
+}
+
+.ventana_grado i{
+    float: right;
+    margin-right: 20px;
+    font-size: 25px;
+    cursor: pointer;
+}

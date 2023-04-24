@@ -156,10 +156,10 @@ const Secretaria = ({user}) => {
                 <h4>salones</h4>
             </Link>
 
-            <div className='funcionesSecretaria'>
+            <Link to={'/inicio/pages/grados'} className='funcionesSecretaria'>
                 <i className='bx bxs-group'></i>
                 <h4>grados</h4>
-            </div>
+            </Link>
         </article>
         
         <div className="estudiantesResientes">
