@@ -114,7 +114,8 @@ body.dark .emergente_grado{
 
 .ventana_grado{
     width: 45%;
-    height: 30vh;
+    min-height: 30%;
+    max-height: 100%;
     background: white;
     display: none;
     margin-top: 20px;
@@ -126,6 +127,10 @@ body.dark .emergente_grado{
     flex-direction: column;
 }
 
+body.dark .ventana_grado{
+    background: #242526;
+}
+
 .emergente_grado .ventana_grado{
     display: block;
 }
@@ -135,4 +140,55 @@ body.dark .emergente_grado{
     margin-right: 20px;
     font-size: 25px;
     cursor: pointer;
+}
+
+.ventana_grado form{
+    margin-top: 40px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 30px;
+}
+
+body.dark .ventana_grado form{
+    color: black;
+}
+
+.ventana_grado form .estudiantes_form{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.ventana_grado form .estudiantes_form img{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 5px solid #E6E7E8;
+}
+
+.ventana_grado form button{
+    padding: 10px 0;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid #28a745;
+    background: #28a745;
+    border-radius: 5px;
+    color: white;
+}
+
+.css-1p3m7a8-multiValue{
+    background: hsl(0, 0%, 90%);
+}
+
+body.dark .css-1p3m7a8-multiValue{
+    background: #242526;
+    color: white;
+}
+
+body.dark .css-1p3m7a8-multiValue p{
+    color: white;
 }

@@ -156,6 +156,16 @@ export const apiSlice = createApi({
             })
         }),
 
+        // crear grado
+        crearGrado: buider.mutation({
+            query: ({ nombre, director, estudiantes }) => ({
+                url: 'crearGrado',
+                method: 'POST',
+                body: { nombre: nombre, director_de_grupo: director, estudiantes: estudiantes }
+            }),
+            invalidatesTags: ['grados']
+        }),
+
         // traer a todos los grados
         getGrados: buider.query({
             query: () => 'allGrados',
@@ -185,5 +195,6 @@ export const {
     useCreateAsignaturaMutation,
     useGetAsignaturasQuery,
     usePutMateriaMutation,
-    useGetGradosQuery
+    useGetGradosQuery,
+    useCrearGradoMutation
 } = apiSlice
