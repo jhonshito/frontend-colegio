@@ -28,7 +28,8 @@ export const apiSlice = createApi({
 
         // traer a todos los docentes
         getDocentes: buider.query({
-            query: () => 'docentes'
+            query: () => 'docentes',
+            providesTags: ['docentes']
         }),
 
         // traer estudiantes que se postularon a matricula los ultimos 7 dias ⬇⬇
@@ -148,11 +149,22 @@ export const apiSlice = createApi({
             providesTags: ['asignaturas']
         }),
 
+        // agregar materia al docente
         putMateria: buider.mutation({
             query: ({ docenteId, materiaId }) => ({
                 url: 'addMateria',
                 method: 'PUT',
                 body: { docenteId, materiaId }
+            }),
+            invalidatesTags: ['docentes']
+        }),
+
+        // agregar asignatura al docente
+        agregarAsignatura: buider.mutation({
+            query: ({ docenteId, asignaturaId }) => ({
+                url: 'addAsignatura',
+                method: 'PUT',
+                body: { docenteId, asignaturaId }
             })
         }),
 

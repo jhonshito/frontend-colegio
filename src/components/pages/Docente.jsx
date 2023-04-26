@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { useGetDocentesQuery } from "../../api/apiSlice";
 import Loading from '../Loading';
 import '../pagesCss/docente.css'
 import inicio from "../pagesImg/inicio.webp"
@@ -8,7 +7,7 @@ import Select from "react-select";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { useGetMateriasQuery, useGetAsignaturasQuery, usePutMateriaMutation } from "../../api/apiSlice";
+import { useGetMateriasQuery, useGetAsignaturasQuery, usePutMateriaMutation, useGetDocentesQuery } from "../../api/apiSlice";
 import { tiposOptiones } from "./selectOptions/Opcciones";
 import { Link } from "react-router-dom";
 
@@ -104,7 +103,7 @@ const Docente = () => {
     // console.log(ids)
   }
 
-  if(isLoading){
+  if(isLoading || materiaLoading || asignaturaLoading){
     return <Loading />
   }
 
@@ -112,23 +111,15 @@ const Docente = () => {
     <div>{error.message}</div>
   }
 
-  if(materiaLoading){
-    return <Loading />
-  }
-
   if(materiaError){
     <div>{materiaError.message}</div>
-  }
-  
-  if(asignaturaLoading){
-    return <Loading />
   }
 
   if(asignaturaError){
     <div>{asignaturaError.message}</div>
   }
 
-  // console.log(data)
+  console.log(data)
   return (
     <section className='conten_docente'>
       <div className="card_conten_docente">
@@ -145,15 +136,12 @@ const Docente = () => {
                 <h4>Conctatos</h4>
                 <h5>CORREO : {item.correo}</h5>
                 <h5>CELULAR : {item.numero}</h5>
-                {
-                  item.materias.length == 0 ? '' :
-                  <h5>MATERIAS : {item.materias.map((items) => (
-                    items.nombre
-                  ))}</h5>
-                }
+                {item.materias ? <h5>MATERIAS : {item?.materias?.nombre}</h5> : ''}
               </div>
               <hr />
-              <button onClick={() => handleOpen(item._id)}>Asignar materia</button>
+              {
+                !item.materias ? <button onClick={() => handleOpen(item._id)}>Asignar materia</button> : ''
+              }
               {/* aqui va las materias */}
             </div>
           ))

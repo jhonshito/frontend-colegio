@@ -86,46 +86,61 @@ const CrearGrados = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
 
-        // console.log(grado.label)
-        // console.log(multiEstudiantes.value)
-        console.log(selectDocentes)
-
         let newIds = [];
 
         multiEstudiantes.map((item) => {
-            // console.log(item.value)
             newIds.push(item.value)
         })
 
         switch(true){
+            case !dataTipo:
+                toast.warning('Por favor elije el nivel del grado', {
+                    position: toast.POSITION.TOP_RIGHT
+                })
+                break;
             case !grado:
-                console.log('no hay nombre')
+                toast.warning('Por favor elije el grado', {
+                    position: toast.POSITION.TOP_RIGHT
+                })
                 break;
             case !selectDocentes:
-                console.log('no hay director de grupo')
+                toast.warning('Por favor elije el director del grado', {
+                    position: toast.POSITION.TOP_RIGHT
+                })
                 break;
             case newIds.length == 0:
-                console.log('sin estudiantes')
+                toast.warning('Por favor selecciona a todos los estudiantes que estaran en el grado', {
+                    position: toast.POSITION.TOP_RIGHT
+                })
                 break;
 
             default:
                 try {
                     const res = await crearGrado({ nombre: grado.label, director: selectDocentes.value, estudiantes: newIds })
+                    const {data, error} = res
+                    if(data){
+                        if(data.status == 200){
+                            toast.success(res.data.mensaje, {
+                                position: toast.POSITION.TOP_RIGHT
+                            })
+                            setTimeout(() => {
+                                conten.current.classList.remove("emergente_grado")
+                                body.style.overflowY = 'auto'
+                            }, 2000)
+                        }
+                    }
 
-                    // solucionar el problema del mensaje si es error o no ⬇⬇
-
-                    // console.log(res)
-                    // if(res.data.status == 200){
-                    //     toast.success(res.data.mensaje, {
-                    //         position: toast.POSITION.TOP_RIGHT
-                    //     })
-                    // }else if(res.error.data.status == 400){
-                    //     toast.error(res.error.data.mensaje, {
-                    //         position: toast.POSITION.TOP_RIGHT
-                    //     })
-                    // }else {
-                    //     console.log('no entraste')
-                    // }
+                    if(error){
+                        if(error.data.status == 400){
+                            toast.warning(`${res.error.data.mensaje} ${grado.label}`, {
+                                position: toast.POSITION.TOP_RIGHT
+                            })
+                        }else {
+                            toast.error(`${res.error.data.mensaje}`, {
+                                position: toast.POSITION.TOP_RIGHT
+                            })
+                        }
+                    }
                 } catch (error) {
                     console.log(error)
                 }
