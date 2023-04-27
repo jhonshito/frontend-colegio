@@ -2,7 +2,8 @@ import "../css/inicio.css"
 import logo from "../imgs/logo.jpg"
 import { useRef, useEffect, useState  } from "react";
 // import PagesHome from "./PagesHome";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 
 const Inicio = () => {
 
@@ -14,6 +15,7 @@ const Inicio = () => {
         materias: useRef()
     })
 
+    const navigate = useNavigate();
     const bodyRef = useRef();
     const sidebarRef = useRef();
     const modeTextRef = useRef();
@@ -42,6 +44,11 @@ const Inicio = () => {
             localStorage.removeItem('darkModel')
             modeTextRef.current.innerText = 'Dark Mode'
         }
+    }
+
+    const logout = () => {
+        localStorage.removeItem('token')
+        navigate('/')
     }
 
     useEffect(() => {
@@ -86,6 +93,12 @@ const Inicio = () => {
         }
         
     }, [bodyRef, modeTextRef, location.pathname, referencia.pefil]);
+
+    // const token = localStorage.getItem('token')
+
+    // if(!token){
+    //     <div>siii</div>
+    // }
 
   return (
     <main className="body cerrado">
@@ -153,7 +166,7 @@ const Inicio = () => {
 
                 <div className="bottom-content">
                     <li className="">
-                        <a href="#">
+                        <a onClick={logout} href="#">
                             <i className='bx bx-log-out icon' ></i>
                             <span className="text nav-text">Logout</span>
                         </a>

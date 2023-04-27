@@ -1,7 +1,7 @@
 import React from 'react'
 import'../pagesCss/salones.css'
 import { useGetSalonesQuery } from "../../api/apiSlice";
-import inicio from '../pagesImg/inicio.webp'
+import inicio from '../pagesImg/profesores.jpeg'
 
 const Salones = () => {
 
@@ -29,12 +29,12 @@ const Salones = () => {
                         <div className="salones_data">
                             <h2>Nombre : <span>{item?.nombre}</span></h2>
                             <p>{item?.descripcion}</p>
-                            <h3>Director del salon: {item.director.nombreCompleto}</h3>
+                            <h3>Director del salon: {item?.director?.nombreCompleto}</h3>
                             <div className="funciones_salones">
-                                <button>
+                                {/* <button>
                                     <span>Agregar estudiantes</span>
                                     <i className="bi bi-plus-lg"></i>
-                                </button>
+                                </button> */}
                             </div>
                         </div>
                     </div>

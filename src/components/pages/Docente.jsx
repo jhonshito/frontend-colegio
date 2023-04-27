@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Loading from '../Loading';
 import '../pagesCss/docente.css'
-import inicio from "../pagesImg/inicio.webp"
+import inicio from "../pagesImg/profesores.jpeg"
 import Select from "react-select";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { useGetMateriasQuery, useGetAsignaturasQuery, usePutMateriaMutation, useGetDocentesQuery } from "../../api/apiSlice";
+import { useGetMateriasQuery, useGetAsignaturasQuery, usePutMateriaMutation, useGetDocentesQuery, useAgregarAsignaturaMutation } from "../../api/apiSlice";
 import { tiposOptiones } from "./selectOptions/Opcciones";
 import { Link } from "react-router-dom";
 
@@ -26,6 +26,7 @@ const Docente = () => {
   const { data: dataMaterias, isLoading: materiaLoading,  error: materiaError } = useGetMateriasQuery();
   const { data: asignaturaData, isLoading: asignaturaLoading,  error: asignaturaError } = useGetAsignaturasQuery();
   const [ putMateria ] = usePutMateriaMutation();
+  const [ agregarAsignatura ] = useAgregarAsignaturaMutation();
 
   useEffect(() => {
     if(dataMaterias && dataMaterias.materias){
@@ -76,28 +77,73 @@ const Docente = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    try {
-      const res = await putMateria({ docenteId: ids, materiaId: seleccion.value })
-      if(res.data.status == 200){
-        toast.success(res.data.mensaje, {
-          position: toast.POSITION.TOP_RIGHT
-        })
-        setTimeout(() => {
-          conten.current.classList.remove('emergente_docentes')
-        }, 1000)
-      }else if(res.data.status == 400){
-        toast.warning(res.mensaje, {
-          position: toast.POSITION.TOP_RIGHT
-        })
-      }else {
-        toast.error(res.data.mensaje, {
-          position: toast.POSITION.TOP_RIGHT
-        })
+    if(tipo.label == 'materia'){
+
+      try {
+        const res = await putMateria({ docenteId: ids, materiaId: seleccion.value })
+        const { data, error } = res
+  
+        if(data){
+          if(data.status == 200){
+            toast.success(res.data.mensaje, {
+              position: toast.POSITION.TOP_RIGHT
+            })
+          }
+  
+          setTimeout(() => {
+            conten.current.classList.remove('emergente_docentes')
+          }, 1000)
+        }
+  
+        if(error){
+          if(error.status == 400){
+            toast.warning(res.mensaje, {
+              position: toast.POSITION.TOP_RIGHT
+            })
+          }else {
+            toast.error(res.data.mensaje, {
+              position: toast.POSITION.TOP_RIGHT
+            })
+          }
+        }
+      } catch (error) {
+        console.log(error)
       }
-      console.log(res)
-    } catch (error) {
-      console.log(error)
+    }else {
+      try {
+        const res = await agregarAsignatura({ docenteId: ids, asignaturaId: seleccion.value })
+
+        const { data, error } = res
+  
+        if(data){
+          if(data.status == 200){
+            toast.success(res.data.mensaje, {
+              position: toast.POSITION.TOP_RIGHT
+            })
+          }
+  
+          setTimeout(() => {
+            conten.current.classList.remove('emergente_docentes')
+          }, 1000)
+        }
+  
+        if(error){
+          if(error.status == 400){
+            toast.warning(res.mensaje, {
+              position: toast.POSITION.TOP_RIGHT
+            })
+          }else {
+            toast.error(res.data.mensaje, {
+              position: toast.POSITION.TOP_RIGHT
+            })
+          }
+        }
+      } catch (error) {
+        console.log(error)
+      }
     }
+
+
     // console.log(tipo)
     // console.log(seleccion.value)
     // console.log(ids)
@@ -125,7 +171,7 @@ const Docente = () => {
       <div className="card_conten_docente">
 
         {
-          data.usuarios.map((item) => (
+          data?.usuarios?.map((item) => (
             <div key={item._id} className="item_docente">
               <div className="image_docente">
                 <img src={inicio} alt="Este es el inicio" />
@@ -136,11 +182,25 @@ const Docente = () => {
                 <h4>Conctatos</h4>
                 <h5>CORREO : {item.correo}</h5>
                 <h5>CELULAR : {item.numero}</h5>
+                {
+                  !item.asignatura ? '' :
+                  <div className='asignaturas'>
+                    <p>{item.asignatura.tipo}: {item.asignatura.nombre}</p>
+                    <h5>materias</h5>
+                    <article className='asignaturas_materias'>
+                      {
+                        item.asignatura.materias.map((items, index) => (
+                          <span key={index}>{items}</span>
+                        ))
+                      }
+                    </article>
+                  </div>
+                }
                 {item.materias ? <h5>MATERIAS : {item?.materias?.nombre}</h5> : ''}
               </div>
               <hr />
               {
-                !item.materias ? <button onClick={() => handleOpen(item._id)}>Asignar materia</button> : ''
+                !item.materias && !item.asignatura ? <button onClick={() => handleOpen(item._id)}>Asignar materia</button> : ''
               }
               {/* aqui va las materias */}
             </div>

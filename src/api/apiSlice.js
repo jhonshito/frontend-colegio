@@ -208,5 +208,6 @@ export const {
     useGetAsignaturasQuery,
     usePutMateriaMutation,
     useGetGradosQuery,
-    useCrearGradoMutation
+    useCrearGradoMutation,
+    useAgregarAsignaturaMutation
 } = apiSlice

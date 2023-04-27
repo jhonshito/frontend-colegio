@@ -22,8 +22,12 @@ import AñosLetivos from './components/pages/AñosLetivos'
 import PeriodosDelAñoLetivo from './components/pages/PeriodosDelAñoLetivo'
 import CrearMaterias from './components/pages/CrearMaterias'
 import CrearGrados from './components/pages/CrearGrados'
+import NoAcces from './components/NoAcces'
 
 function App() {
+
+  const token = localStorage.getItem('token')
+  const isAuthenticated = !!token; 
 
   return (
     <div>
@@ -35,21 +39,27 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/cambiarContraseña' element={<CambiarContraseña />} />
             <Route path='/contrasenaCambiada/:id' element={<ContraseñaCambiada />} />
-            <Route path='/inicio' element={<Inicio />} >
-              <Route path='/inicio/pages' element={<PagesHome/>}>
-                <Route path='/inicio/pages/perfil' element={<Perfi />} />
-                <Route path='/inicio/pages/pagesInicio' element={<AnotherInicio />} />
-                <Route path='/inicio/pages/periodos' element={<Periodos />} />
-                <Route path='/inicio/pages/listEstudiantes' element={<ListEstudiantes />} />
-                <Route path='/inicio/pages/crearSalon' element={<CrearSalon />} />
-                <Route path='/inicio/pages/clases/:id' element={<Clases />} />
-                <Route path='/inicio/pages/docentes' element={<Docente />} />
-                <Route path='/inicio/pages/letivo' element={<AñosLetivos />} />
-                <Route path='/inicio/pages/periodosLetivos/:id' element={<PeriodosDelAñoLetivo />} />
-                <Route path='/inicio/pages/materias' element={<CrearMaterias />} />
-                <Route path='/inicio/pages/grados' element={<CrearGrados />} />
-              </Route>
-            </Route>
+            {
+              token ? (
+                <Route path='/inicio' element={<Inicio />} >
+                  <Route path='/inicio/pages' element={<PagesHome/>}>
+                    <Route path='/inicio/pages/perfil' element={<Perfi />} />
+                    <Route path='/inicio/pages/pagesInicio' element={<AnotherInicio />} />
+                    <Route path='/inicio/pages/periodos' element={<Periodos />} />
+                    <Route path='/inicio/pages/listEstudiantes' element={<ListEstudiantes />} />
+                    <Route path='/inicio/pages/crearSalon' element={<CrearSalon />} />
+                    <Route path='/inicio/pages/clases/:id' element={<Clases />} />
+                    <Route path='/inicio/pages/docentes' element={<Docente />} />
+                    <Route path='/inicio/pages/letivo' element={<AñosLetivos />} />
+                    <Route path='/inicio/pages/periodosLetivos/:id' element={<PeriodosDelAñoLetivo />} />
+                    <Route path='/inicio/pages/materias' element={<CrearMaterias />} />
+                    <Route path='/inicio/pages/grados' element={<CrearGrados />} />
+                  </Route>
+                </Route>
+              ): (
+                <Route path='*' element={<NoAcces />} />
+              )
+            }
           </Routes>
         </Provider>
       </ApiProvider>

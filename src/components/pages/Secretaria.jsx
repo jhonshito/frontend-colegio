@@ -163,7 +163,7 @@ const Secretaria = ({user}) => {
         </article>
         
         <div className="estudiantesResientes">
-            <h4>Aspirantes a matricula de los ultimos 7 dias</h4>
+            <h4>Aspirantes a matricula</h4>
             <span>{data.user.length}</span>
         </div>
         {

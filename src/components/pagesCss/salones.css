@@ -33,7 +33,8 @@ body.dark .item_salones{
 }
 
 .salon_imagen img{
-    width: 100px;
+    width: 150px;
+    height: 60%;
     border: 5px solid #E6E7E8;
 }
 
